@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && copy index.html dist\\client\\",
+    "build": "vite build && node -e \"const fs=require('fs'); const path=require('path'); const out='dist/client/index.html'; fs.mkdirSync(path.dirname(out), {recursive:true}); fs.copyFileSync('index.html', out);\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
